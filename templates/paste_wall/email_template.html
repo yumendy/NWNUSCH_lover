@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <p>{{ paste.name }}:</p>
+    <p>在附中人社举办的十日情侣活动中，{% if paste.is_anonymous %}一位神秘的同学{% else %}{{ paste.author }}{% endif %}在表白墙上于{{ paste.create_time|date:"Y-m-d" }}&nbsp;{{ paste.create_time|time:"H:i" }}向你表白啦。</p>
+    <p>TA说:</p>
+    <p>{{ paste.content }}</p>
+    <p><b>更多详情来我萌的网站看看吧。(这是一封系统邮件，请勿回复)</b></p>
+</body>
+</html>

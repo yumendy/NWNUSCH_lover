@@ -1,0 +1,60 @@
+{% extends 'website/backend/backend_base.html' %}
+
+{% block option-title %}
+    报名列表
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <table class="table table-hover table-responsive table-condensed dashboard-table">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>届别</th>
+                    <th>班级</th>
+                    <th>班主任姓名</th>
+                    <th>现在学校</th>
+                    <th>专业</th>
+                    <th>所在城市</th>
+                    <th>QQ号</th>
+                    <th>微信号</th>
+                    <th>是否接受异地恋</th>
+                    <th>报名时间</th>
+                    <th>其他要求</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in info_list %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>
+                            {% if item.sex == 'M' %}
+                                男
+                            {% else %}
+                                女
+                            {% endif %}
+                        </td>
+                        <td>{{ item.grade }}</td>
+                        <td>{{ item.class_num }}</td>
+                        <td>{{ item.teacher_name }}</td>
+                        <td>{{ item.college }}</td>
+                        <td>{{ item.major }}</td>
+                        <td>{{ item.city }}</td>
+                        <td>{{ item.qq_num }}</td>
+                        <td>{{ item.wx_num }}</td>
+                        <td>{{ item.can_long_distance_relationship }}</td>
+                        <td>{{ item.create_time }}</td>
+                        <td>{{ item.remarks }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include 'utils/pagination.html' %}
+    </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

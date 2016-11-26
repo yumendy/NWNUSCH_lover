@@ -1,0 +1,13 @@
+<div class="col-md-12 article">
+    <div class="col-md-12 text-center">
+        <h2 class="category-header">表白墙统计</h2>
+        <hr>
+    </div>
+    <div class="col-md-12">
+        <p>表白总数：{{ paste_number }}</p>
+        <p>待审核数：{{ unchecked_paste_number }}</p>
+        <p>实名表白：{{ real_name_paste_number }}</p>
+        <p>匿名表白：{{ anonymous_name_paste_number }}</p>
+        <p class="text-center"><a class="btn btn-danger" href="{% url 'paste_wall-add' %}" role="button">&emsp;去表白&nbsp;→&emsp;</a></p>
+    </div>
+</div>

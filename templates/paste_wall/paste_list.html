@@ -1,0 +1,44 @@
+{% extends 'website/backend/backend_base.html' %}
+
+{% block option-title %}
+    表白列表
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <table class="table table-hover table-responsive table-condensed dashboard-table">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>届别</th>
+                    <th>班级</th>
+                    <th>邮箱</th>
+                    <th>表白者</th>
+                    <th>是否匿名</th>
+                    <th>表白时间</th>
+                    <th>内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in paste_list %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.grade }}</td>
+                        <td>{{ item.class_num }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.author }}</td>
+                        <td>{{ item.is_anonymous }}</td>
+                        <td>{{ item.create_time }}</td>
+                        <td>{{ item.content }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include 'utils/pagination.html' %}
+    </div>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

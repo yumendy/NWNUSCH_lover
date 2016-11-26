@@ -1,0 +1,87 @@
+{% extends 'website/frontend/frontend_base.html' %}
+
+{% block title %}发布表白{% endblock %}
+
+{% block external_head %}{% endblock %}
+
+
+{% block left %}
+    <div class="col-md-12 article">
+        <div class="col-md-12 text-center">
+            <h2 class="category-header">活动介绍</h2>
+            <hr>
+        </div>
+        <div class="col-md-12">
+            <p>&emsp;&emsp;你可以在这里发布一个属于自己的表白，其中前三个字段和最后的表白内容为必填项。如果你填写了TA的Email，在你的表白通过审核后，我们的系统会代替你向TA发送一封邮件提醒他关注你的心意。在通过管理员审核之前，内容是不会显示在表白墙上的哦~</p>
+        </div>
+
+    </div>
+
+    <div class="col-md-12 article">
+        <h2 class="text-center text-info category-header">发布表白</h2>
+        <div class="col-md-8 col-md-offset-2">
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">表白对象:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grade" class="col-sm-3 control-label">TA的届别:</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="grade" name="grade" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="class_num" class="col-sm-3 control-label">TA的班级:</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="class_num" name="class_num" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">TA的Email:</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="author" class="col-sm-3 control-label">你的名字:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="author" name="author">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="is_anonymous" class="col-sm-3 control-label">是否匿名:</label>
+                    <div class="col-sm-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="is_anonymous" value="True" checked>
+                                匿名
+                            </label>
+                            <label>
+                                <input type="radio" name="is_anonymous" value="">
+                                不匿名
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content" class="col-sm-3 control-label">表白内容:</label>
+                    <div class="col-sm-9">
+                        <textarea name="content" id="content" rows="8" wrap="hard" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-sm-12 text-center">
+                        <button type="submit" class="btn btn-danger">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}{% endblock %}

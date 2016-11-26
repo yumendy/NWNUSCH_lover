@@ -1,0 +1,132 @@
+{% extends 'website/frontend/frontend_base.html' %}
+
+{% block title %}发布表白{% endblock %}
+
+{% block external_head %}{% endblock %}
+
+
+{% block left %}
+    <div class="col-md-12 article">
+        <div class="col-md-12 text-center">
+            <h2 class="category-header">报名须知</h2>
+            <hr>
+        </div>
+        <div class="col-md-12">
+            <p>&emsp;&emsp;报名表内容我们会严格保密，报名成功后请耐心等待工作人员联系。</p>
+        </div>
+
+    </div>
+
+    <div class="col-md-12 article">
+        <h2 class="text-center text-info category-header">参与活动</h2>
+        <div class="col-md-10 col-md-offset-1">
+            <form class="form-horizontal" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label">姓名:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="sex" class="col-sm-3 control-label">性别:</label>
+                    <div class="col-sm-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="sex" value="M" checked>
+                                男
+                            </label>
+                            <label>
+                                <input type="radio" name="sex" value="F">
+                                女
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="birthday" class="col-sm-3 control-label">出生年月(yyyy-mm):</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="birthday" name="birthday" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="grade" class="col-sm-3 control-label">届别:</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="grade" name="grade" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="class_num" class="col-sm-3 control-label">班级:</label>
+                    <div class="col-sm-9">
+                        <input type="number" class="form-control" id="class_num" name="class_num" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="teacher_name" class="col-sm-3 control-label">班主任:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="teacher_name" name="teacher_name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="college" class="col-sm-3 control-label">现读大学:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="college" name="college" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="major" class="col-sm-3 control-label">专业:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="major" name="major" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="city" class="col-sm-3 control-label">所在城市:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="city" name="city" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="qq_num" class="col-sm-3 control-label">QQ:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="qq_num" name="qq_num">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="wx_num" class="col-sm-3 control-label">微信:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="wx_num" name="wx_num">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="can_long_distance_relationship" class="col-sm-3 control-label">是否接受异地恋:</label>
+                    <div class="col-sm-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="can_long_distance_relationship" value="True" checked>
+                                接受
+                            </label>
+                            <label>
+                                <input type="radio" name="can_long_distance_relationship" value="">
+                                不接受
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="remarks" class="col-sm-3 control-label">其他要求:</label>
+                    <div class="col-sm-9">
+                        <textarea name="remarks" id="remarks" rows="8" wrap="hard" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class=" col-sm-12 text-center">
+                        <button type="submit" class="btn btn-danger">提交</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block js %}{% endblock %}
