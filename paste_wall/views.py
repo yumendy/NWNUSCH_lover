@@ -52,7 +52,7 @@ class PassCheckView(UserPassesTestMixin, FormView):
         result = None
         if paste.email:
             result = send_mail(
-                '[附中人社] [十日CP活动]有人向你表白啦！',
+                '[附中人社] [十日CP活动]%s,有人向你表白啦！' % paste.name,
                 email_content,
                 settings.EMAIL_HOST_USER,
                 [paste.email],
