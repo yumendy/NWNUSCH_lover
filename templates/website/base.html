@@ -16,6 +16,15 @@
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
     {% block external_header %}{% endblock %}
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?66076bdcef30ded3c01898d3a30024a8";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
     {% block body %}{% endblock %}
