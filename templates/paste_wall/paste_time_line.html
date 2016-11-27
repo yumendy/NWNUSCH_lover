@@ -23,7 +23,7 @@
                     </div>
                     <div class="panel timeline-content">
                         <div class="panel-body">
-                            <p>TO:{{ paste.name }}:</p>
+                            <p>TO {{ paste.grade }}届{{ paste.class_num }}班的{{ paste.name }}:</p>
                             <p>{{ paste.content }}</p>
                             <p>FROM:{% if paste.is_anonymous %}一位神秘的同学{% else %}{{ paste.author }}{% endif %}</p>
                         </div>
