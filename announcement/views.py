@@ -29,6 +29,7 @@ class AnnouncementCreateView(AjaxableResponseMixin, UserPassesTestMixin, CreateV
 class AnnouncementListView(UserPassesTestMixin, ListView):
     model = Announcement
     context_object_name = 'announcement_list'
+    paginate_by = 20
 
     def test_func(self):
         return self.request.user.is_staff
