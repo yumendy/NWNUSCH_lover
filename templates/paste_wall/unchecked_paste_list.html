@@ -60,7 +60,7 @@
                     var email_result = data.email_result;
                     if(state == 'success'){
                         dom_item.parentElement.parentElement.setAttribute('hidden','');
-                        showModal('success', "通过成功！\n" + "邮件返回代码：" + email_result)
+                        showModal('success', "通过成功！code:" + email_result)
                     }
                 },
                 error:function(data){

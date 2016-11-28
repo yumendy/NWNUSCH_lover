@@ -11,6 +11,9 @@ from django.views.generic import TemplateView
 
 from paste_wall.models import Paste
 from website.mixin import FrontMixin
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class PasteCreateView(FrontMixin, CreateView):
@@ -51,14 +54,17 @@ class PassCheckView(UserPassesTestMixin, FormView):
         email_content = loader.get_template('paste_wall/email_template.html').render(Context({'paste': paste}))
         result = None
         if paste.email:
-            result = send_mail(
-                u'%s,[附中人社][十日CP活动]有人向你表白啦！' % paste.name,
-                email_content,
-                settings.EMAIL_HOST_USER,
-                [paste.email],
-                fail_silently=True,
-                html_message=email_content
-            )
+            try:
+                result = send_mail(
+                    u'%s,[附中人社][十日CP活动]有人向你表白啦！' % paste.name,
+                    email_content,
+                    settings.EMAIL_HOST_USER,
+                    [paste.email],
+                    fail_silently=False,
+                    html_message=email_content
+                )
+            except Exception as e:
+                logger.error('[EMAIL ERROR]: ' + unicode(e))
         return JsonResponse({'state': 'success', 'email_result': result})
 
 
