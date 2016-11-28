@@ -56,8 +56,8 @@ class PassCheckView(UserPassesTestMixin, FormView):
         if paste.email:
             try:
                 result = send_mail(
-                    u'%s,[附中人社][十日CP活动]有人向你表白啦！' % paste.name,
-                    email_content,
+                    u'%s,有人向你表白啦！' % paste.name,
+                    paste.content,
                     settings.EMAIL_HOST_USER,
                     [paste.email],
                     fail_silently=False,
