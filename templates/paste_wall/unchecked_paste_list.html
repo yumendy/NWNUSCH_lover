@@ -57,9 +57,10 @@
                 url:'{% url "paste_wall-pass" 00 %}'.replace('0', this.dataset['id']),
                 success:function(data){
                     var state = data.state;
+                    var email_result = data.email_result;
                     if(state == 'success'){
                         dom_item.parentElement.parentElement.setAttribute('hidden','');
-                        showModal('success', "通过成功！")
+                        showModal('success', "通过成功！\n" + "邮件返回代码：" + email_result)
                     }
                 },
                 error:function(data){

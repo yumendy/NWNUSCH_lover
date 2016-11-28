@@ -52,11 +52,11 @@ class PassCheckView(UserPassesTestMixin, FormView):
         result = None
         if paste.email:
             result = send_mail(
-                u'[附中人社] [十日CP活动]%s,有人向你表白啦！' % paste.name,
+                u'%s,[附中人社][十日CP活动]有人向你表白啦！' % paste.name,
                 email_content,
                 settings.EMAIL_HOST_USER,
                 [paste.email],
-                fail_silently=False,
+                fail_silently=True,
                 html_message=email_content
             )
         return JsonResponse({'state': 'success', 'email_result': result})
