@@ -1,20 +1,19 @@
 # coding=utf-8
 import csv
+import logging
 
-from django.conf import settings
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.core.mail import send_mail
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse
-from django.http import JsonResponse
-from django.template import loader, Context
-from django.views.generic.edit import CreateView, FormView
-from django.views.generic.list import ListView
-from django.views.generic import TemplateView, View
 from django.utils import timezone
+from django.views.generic import TemplateView
+from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 
 from statistics.models import Info
 from website.mixin import FrontMixin
+
+logger = logging.getLogger(__name__)
 
 
 class InfoCreateView(FrontMixin, CreateView):
@@ -76,6 +75,10 @@ class GenCSVView(UserPassesTestMixin, TemplateView):
                 timezone.make_naive(info.create_time, timezone.get_current_timezone()).strftime('%Y-%m-%d %H:%M:%S'),
                 info.remarks
             ]
-            writer.writerow(map(lambda x: unicode(x).strip().encode('gbk'), content))
+            try:
+                writer.writerow(map(lambda x: unicode(x).strip().encode('gbk'), content))
+            except:
+                logger.error('write file error, name = %s' % info.name)
+                continue
 
         return response
