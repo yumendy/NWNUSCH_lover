@@ -76,6 +76,6 @@ class GenCSVView(UserPassesTestMixin, TemplateView):
                 timezone.make_naive(info.create_time, timezone.get_current_timezone()).strftime('%Y-%m-%d %H:%M:%S'),
                 info.remarks
             ]
-            writer.writerow(map(lambda x: unicode(x.strip()).encode('gbk'), content))
+            writer.writerow(map(lambda x: unicode(x).strip().encode('gbk'), content))
 
         return response
